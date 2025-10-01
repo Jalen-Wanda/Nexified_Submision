@@ -1,0 +1,49 @@
+T:\Campus-master\Campus-master\obj\Debug\CampusService.csproj.CoreCompileInputs.cache
+T:\Campus-master\Campus-master\bin\CampusService.dll.config
+T:\Campus-master\Campus-master\bin\CampusService.dll
+T:\Campus-master\Campus-master\bin\CampusService.pdb
+T:\Campus-master\Campus-master\obj\Debug\CampusService.dll
+T:\Campus-master\Campus-master\obj\Debug\CampusService.pdb
+T:\Campus-master\Campus-master\obj\Debug\CampusService.csproj.AssemblyReference.cache
+C:\Users\General\Desktop\Campus-master\Campus-master\bin\CampusService.dll.config
+C:\Users\General\Desktop\Campus-master\Campus-master\bin\CampusService.dll
+C:\Users\General\Desktop\Campus-master\Campus-master\bin\CampusService.pdb
+C:\Users\General\Desktop\Campus-master\Campus-master\obj\Debug\CampusService.csproj.AssemblyReference.cache
+C:\Users\General\Desktop\Campus-master\Campus-master\obj\Debug\CampusService.csproj.CoreCompileInputs.cache
+C:\Users\General\Desktop\Campus-master\Campus-master\obj\Debug\CampusService.dll
+C:\Users\General\Desktop\Campus-master\Campus-master\obj\Debug\CampusService.pdb
+F:\New folder (backend)\Campus-master\Campus-master\bin\CampusService.dll.config
+F:\New folder (backend)\Campus-master\Campus-master\bin\CampusService.dll
+F:\New folder (backend)\Campus-master\Campus-master\bin\CampusService.pdb
+F:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.csproj.AssemblyReference.cache
+F:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.csproj.CoreCompileInputs.cache
+F:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.dll
+F:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.pdb
+E:\New folder (backend)\Campus-master\Campus-master\bin\CampusService.dll.config
+E:\New folder (backend)\Campus-master\Campus-master\bin\CampusService.dll
+E:\New folder (backend)\Campus-master\Campus-master\bin\CampusService.pdb
+E:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.csproj.AssemblyReference.cache
+E:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.csproj.CoreCompileInputs.cache
+E:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.dll
+E:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.pdb
+C:\Users\General\Downloads\New folder (backend)\Campus-master\Campus-master\bin\CampusService.dll.config
+C:\Users\General\Downloads\New folder (backend)\Campus-master\Campus-master\bin\CampusService.dll
+C:\Users\General\Downloads\New folder (backend)\Campus-master\Campus-master\bin\CampusService.pdb
+C:\Users\General\Downloads\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.csproj.AssemblyReference.cache
+C:\Users\General\Downloads\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.csproj.CoreCompileInputs.cache
+C:\Users\General\Downloads\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.dll
+C:\Users\General\Downloads\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.pdb
+T:\New folder (backend)\Campus-master\Campus-master\bin\CampusService.dll.config
+T:\New folder (backend)\Campus-master\Campus-master\bin\CampusService.dll
+T:\New folder (backend)\Campus-master\Campus-master\bin\CampusService.pdb
+T:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.csproj.AssemblyReference.cache
+T:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.csproj.CoreCompileInputs.cache
+T:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.dll
+T:\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.pdb
+F:\01-10-2025(mine)\New folder (backend)\Campus-master\Campus-master\bin\CampusService.dll.config
+F:\01-10-2025(mine)\New folder (backend)\Campus-master\Campus-master\bin\CampusService.dll
+F:\01-10-2025(mine)\New folder (backend)\Campus-master\Campus-master\bin\CampusService.pdb
+F:\01-10-2025(mine)\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.csproj.AssemblyReference.cache
+F:\01-10-2025(mine)\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.csproj.CoreCompileInputs.cache
+F:\01-10-2025(mine)\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.dll
+F:\01-10-2025(mine)\New folder (backend)\Campus-master\Campus-master\obj\Debug\CampusService.pdb
