@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CampusService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CampusService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />
+      <xs:element minOccurs="0" name="Carts" nillable="true" type="tns:ArrayOfCart" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Invoices" nillable="true" type="tns:ArrayOfInvoice" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
+      <xs:element minOccurs="0" name="Products1" nillable="true" type="tns:ArrayOfProduct" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="registrationDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfBid">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Bid" nillable="true" type="tns:Bid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBid" nillable="true" type="tns:ArrayOfBid" />
+  <xs:complexType name="Bid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="bidAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="bidTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="isWinningBid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="productId" type="xs:int" />
+      <xs:element minOccurs="0" name="userId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Bid" nillable="true" type="tns:Bid" />
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />
+      <xs:element minOccurs="0" name="Carts" nillable="true" type="tns:ArrayOfCart" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoiceLines" nillable="true" type="tns:ArrayOfInvoiceLine" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="User1" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="active" type="xs:int" />
+      <xs:element minOccurs="0" name="approvalStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="currentWinnerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="dateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateBid" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="icon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="quatity" type="xs:int" />
+      <xs:element minOccurs="0" name="userId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ArrayOfCart">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cart" nillable="true" type="tns:Cart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCart" nillable="true" type="tns:ArrayOfCart" />
+  <xs:complexType name="Cart">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="addedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="productId" type="xs:int" />
+      <xs:element minOccurs="0" name="quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="userId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cart" nillable="true" type="tns:Cart" />
+  <xs:complexType name="ArrayOfInvoiceLine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceLine" nillable="true" type="tns:InvoiceLine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceLine" nillable="true" type="tns:ArrayOfInvoiceLine" />
+  <xs:complexType name="InvoiceLine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Invoice" nillable="true" type="tns:Invoice" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="invoiceId" type="xs:int" />
+      <xs:element minOccurs="0" name="price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="productId" type="xs:int" />
+      <xs:element minOccurs="0" name="quantity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceLine" nillable="true" type="tns:InvoiceLine" />
+  <xs:complexType name="Invoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="InvoiceLines" nillable="true" type="tns:ArrayOfInvoiceLine" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="totalPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="userId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Invoice" nillable="true" type="tns:Invoice" />
+  <xs:complexType name="ArrayOfInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Invoice" nillable="true" type="tns:Invoice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoice" nillable="true" type="tns:ArrayOfInvoice" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+  <xs:complexType name="ReportData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveAuctionsCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ActiveUsersCount" type="xs:int" />
+      <xs:element minOccurs="0" name="AuctionSuccessRate" type="xs:double" />
+      <xs:element minOccurs="0" name="AverageUserSpend" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AverageWinningBid" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BestSellingQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="CompletedAuctionsCount" type="xs:int" />
+      <xs:element minOccurs="0" name="DailyRegistrations" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="LowStockItems" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="NewUsers" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductsSoldCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SalesByCategory" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="StockByCategory" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TopSpenderAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalOrders" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalRevenue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalStockCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportData" nillable="true" type="tns:ReportData" />
+</xs:schema>
