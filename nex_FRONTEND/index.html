@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Essentials Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1a56db;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+            .logo i {
+                margin-right: 10px;
+            }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+            .nav-links li {
+                margin: 0 15px;
+            }
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+
+                .nav-links a:hover {
+                    color: #ffde59;
+                }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-login {
+            background-color: white;
+            color: #1a56db;
+            margin-right: 10px;
+        }
+
+        .btn-register {
+            background-color: #ffde59;
+            color: #1a56db;
+            margin-right: 20px;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ff3860;
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 86, 219, 0.8), rgba(26, 86, 219, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                max-width: 800px;
+                margin: 0 auto 2rem;
+            }
+
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+            .search-bar input {
+                flex: 1;
+                padding: 12px 16px;
+                border: none;
+                border-radius: 4px 0 0 4px;
+                font-size: 1rem;
+            }
+
+            .search-bar button {
+                background-color: #ffde59;
+                color: #1a56db;
+                border: none;
+                padding: 0 20px;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+        /* Categories Section */
+        .categories {
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1a56db;
+            font-size: 2rem;
+        }
+
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            gap: 10px;
+        }
+
+        .category-filter {
+            padding: 8px 16px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .category-filter.active, .category-filter:hover {
+                background-color: #1a56db;
+                color: white;
+            }
+
+        /* Products Grid */
+        .products {
+            padding: 0 2rem 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .product-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .product-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.2rem;
+        }
+
+        .product-category {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1a56db;
+            margin-bottom: 10px;
+        }
+
+        .product-auction {
+            background-color: #ff3860;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .countdown {
+            font-size: 0.9rem;
+            color: #ff3860;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-add-to-cart {
+            background-color: #1a56db;
+            color: white;
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .btn-bid {
+            background-color: #ffde59;
+            color: #1a56db;
+            flex: 1;
+        }
+
+        /* Auction Section */
+        .auction-section {
+            background-color: #f1f8ff;
+            padding: 3rem 2rem;
+        }
+
+        .auction-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .auction-card {
+            background: linear-gradient(to bottom, #fff, #f1f8ff);
+            border: 2px solid #1a56db;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(26, 86, 219, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+            .footer-links li {
+                margin-bottom: 10px;
+            }
+
+            .footer-links a {
+                color: #ccc;
+                text-decoration: none;
+            }
+
+                .footer-links a:hover {
+                    color: #ffde59;
+                }
+
+        .copyright {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #0d1440;
+            color: white;
+            grid-column: 1 / -1;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: 500;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 1rem;
+            }
+
+        .btn-modal {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a56db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 350px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+
+            .cart-sidebar.open {
+                right: 0;
+            }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .close-cart {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .cart-items {
+            margin-bottom: 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #1a56db;
+            font-weight: bold;
+        }
+
+        .cart-item-remove {
+            color: #ff3860;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+        }
+
+        .cart-total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-align: right;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a56db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cart-sidebar {
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Campus Essentials Hub</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Textbooks</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Dorm Essentials</a></li>
+            <li><a href="#">Stationery</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="btn btn-login" id="loginBtn">Login</button>
+            <button class="btn btn-register" id="registerBtn">Register</button>
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Everything You Need for University Life</h1>
+        <p>Textbooks, electronics, dorm essentials and more - all at student-friendly prices with exclusive auction deals!</p>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2 class="section-title">Shop by Category</h2>
+
+        <div class="category-filters">
+            <div class="category-filter active">All</div>
+            <div class="category-filter">Textbooks</div>
+            <div class="category-filter">Electronics</div>
+            <div class="category-filter">Dorm Essentials</div>
+            <div class="category-filter">Stationery</div>
+        </div>
+
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Calculus Textbook" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Textbook</div>
+                    <h3 class="product-title">Calculus: Early Transcendentals</h3>
+                    <div class="product-price">R889.99</div>
+                    <button class="btn btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Laptop" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Electronics</div>
+                    <h3 class="product-title">MacBook Air 13"</h3>
+                    <div class="product-price">R14 000.00</div>
+                    <button class="btn btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1582533567896-4f3cb1ed4f34?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Desk Lamp" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Dorm Essential</div>
+                    <h3 class="product-title">LED Desk Lamp with USB</h3>
+                    <div class="product-price">R799.99</div>
+                    <button class="btn btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1531346680769-a1d79b57de5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Notebooks" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Stationery</div>
+                    <h3 class="product-title">5-Pack College Ruled Notebooks</h3>
+                    <div class="product-price">R449.99</div>
+                    <button class="btn btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auction Section -->
+    <section class="auction-section">
+        <h2 class="section-title">Auction Items - Bid Now!</h2>
+
+        <div class="auction-products">
+            <!-- Auction Product 1 -->
+            <div class="product-card auction-card">
+                <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="iPad" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Electronics</div>
+                    <h3 class="product-title">iPad Pro" (2022)</h3>
+                    <div class="product-auction">Auction Item</div>
+                    <div class="product-price">Current Bid: R5999.99</div>
+                    <div class="countdown" id="countdown1">Time left: 02:15:33</div>
+                    <div class="product-actions">
+                        <button class="btn btn-add-to-cart">Add to Cart</button>
+                        <button class="btn btn-bid">Bid Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auction Product 2 -->
+            <div class="product-card auction-card">
+                <img src="https://images.unsplash.com/photo-1599669454699-248893623464?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Noise Cancelling Headphones" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Electronics</div>
+                    <h3 class="product-title">Wireless Noise Cancelling Headphones</h3>
+                    <div class="product-auction">Auction Item</div>
+                    <div class="product-price">Current Bid: 1999.99</div>
+                    <div class="countdown" id="countdown2">Time left: 01:08:47</div>
+                    <div class="product-actions">
+                        <button class="btn btn-add-to-cart">Add to Cart</button>
+                        <button class="btn btn-bid">Bid Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auction Product 3 -->
+            <div class="product-card auction-card">
+                <img src="https://images.unsplash.com/photo-1596496181871-9689c727a812?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Scientific Calculator" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Stationery</div>
+                    <h3 class="product-title">TI-84 Plus Graphing Calculator</h3>
+                    <div class="product-auction">Auction Item</div>
+                    <div class="product-price">Current Bid: R400.00</div>
+                    <div class="countdown" id="countdown3">Time left: 04:22:11</div>
+                    <div class="product-actions">
+                        <button class="btn btn-add-to-cart">Add to Cart</button>
+                        <button class="btn btn-bid">Bid Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section">
+            <h3>Campus Essentials Hub</h3>
+            <p>Your one-stop shop for all university necessities. Quality products at student-friendly prices.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Auctions</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: support@campussentials.com</p>
+            <p>Phone: (555) 123-4567</p>
+            <p>Address: 123 University Ave, College Town</p>
+        </div>
+
+        <div class="copyright">
+            &copy; 2023 Campus Essentials Hub. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn-modal">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Account</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password">
+                </div>
+                <button type="submit" class="btn-modal">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span class="close-cart">&times;</span>
+        </div>
+
+        <div class="cart-items">
+            <!-- Cart Item 1 -->
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Calculus Textbook" class="cart-item-image">
+                <div class="cart-item-details">
+                    <div class="cart-item-title">Calculus: Early Transcendentals</div>
+                    <div class="cart-item-price">R889.99</div>
+                </div>
+                <button class="cart-item-remove">&times;</button>
+            </div>
+
+            <!-- Cart Item 2 -->
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1582533567896-4f3cb1ed4f34?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Desk Lamp" class="cart-item-image">
+                <div class="cart-item-details">
+                    <div class="cart-item-title">LED Desk Lamp with USB</div>
+                    <div class="cart-item-price">R799.99</div>
+                </div>
+                <button class="cart-item-remove">&times;</button>
+            </div>
+
+            <!-- Cart Item 3 -->
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1531346680769-a1d79b57de5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Notebooks" class="cart-item-image">
+                <div class="cart-item-details">
+                    <div class="cart-item-title">5-Pack College Ruled Notebooks</div>
+                    <div class="cart-item-price">R449.99</div>
+                </div>
+                <button class="cart-item-remove">&times;</button>
+            </div>
+        </div>
+
+        <div class="cart-total">Total: $87.97</div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+
+    <script>
+        // DOM Elements
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const cartIcon = document.getElementById('cartIcon');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const closeModalButtons = document.querySelectorAll('.close-modal, .close-cart');
+        const categoryFilters = document.querySelectorAll('.category-filter');
+        const countdowns = document.querySelectorAll('.countdown');
+
+        // Event Listeners
+        loginBtn.addEventListener('click', () => loginModal.style.display = 'flex');
+        registerBtn.addEventListener('click', () => registerModal.style.display = 'flex');
+        cartIcon.addEventListener('click', () => cartSidebar.classList.add('open'));
+
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                loginModal.style.display = 'none';
+                registerModal.style.display = 'none';
+                cartSidebar.classList.remove('open');
+            });
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) loginModal.style.display = 'none';
+            if (e.target === registerModal) registerModal.style.display = 'none';
+        });
+
+        // Category filter functionality
+        categoryFilters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                // Remove active class from all filters
+                categoryFilters.forEach(f => f.classList.remove('active'));
+                // Add active class to clicked filter
+                filter.classList.add('active');
+                // In a real application, this would filter the products
+            });
+        });
+
+        // Countdown Timer for Auction Items
+        function updateCountdowns() {
+            // This is a simplified version - in a real application,
+            // you would have specific end times for each auction
+            countdowns.forEach((countdown, index) => {
+                let text = countdown.textContent;
+                let timeArray = text.match(/(\d{2}):(\d{2}):(\d{2})/);
+
+                if (timeArray) {
+                    let hours = parseInt(timeArray[1]);
+                    let minutes = parseInt(timeArray[2]);
+                    let seconds = parseInt(timeArray[3]);
+
+                    seconds--;
+
+                    if (seconds < 0) {
+                        seconds = 59;
+                        minutes--;
+
+                        if (minutes < 0) {
+                            minutes = 59;
+                            hours--;
+
+                            if (hours < 0) {
+                                // Auction ended
+                                countdown.textContent = "Auction ended!";
+                                return;
+                            }
+                        }
+                    }
+
+                    countdown.textContent = `Time left: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
+            });
+        }
+
+        // Update countdowns every second
+        setInterval(updateCountdowns, 1000);
+
+        // Add to Cart functionality
+        const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        let count = 3; // Initial count from the example
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                count++;
+                cartCount.textContent = count;
+
+                // Show confirmation
+                button.textContent = "Added!";
+                setTimeout(() => {
+                    button.textContent = "Add to Cart";
+                }, 1500);
+            });
+        });
+
+        // Remove item from cart
+        const removeButtons = document.querySelectorAll('.cart-item-remove');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.closest('.cart-item').remove();
+                count--;
+                cartCount.textContent = count;
+
+                // Update total (simplified)
+                const totalElement = document.querySelector('.cart-total');
+                const currentTotal = parseFloat(totalElement.textContent.replace('Total: $', ''));
+                const itemPrice = parseFloat(button.closest('.cart-item').querySelector('.cart-item-price').textContent.replace('$', ''));
+                totalElement.textContent = `Total: $${(currentTotal - itemPrice).toFixed(2)}`;
+            });
+        });
+    </script>
+</body>
+</html>
